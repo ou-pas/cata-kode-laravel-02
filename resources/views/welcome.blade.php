@@ -14,30 +14,31 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-3">
-                <form action="{{route('appointments.store')}}" method="post"></form>
-                {{ @csrf_field() }}
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input id="name" type="text" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input id="phone" type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input id="email" type="email" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="schedule_at" class="form-label">Schedule at</label>
-                    <input id="schedule_at" type="datetime-local" class="form-control" required>
-                </div>
+                <form action="{{route('appointments.store')}}" method="post">
+                    {{ @csrf_field() }}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input id="name" name="name" type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input id="phone" name="phone" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" type="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="schedule_at" class="form-label">Schedule at</label>
+                        <input id="schedule_at" name="schedule_at" type="text" class="form-control" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <input id="message" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <input id="message" name="message" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </div>
