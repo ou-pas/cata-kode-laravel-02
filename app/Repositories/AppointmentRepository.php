@@ -18,4 +18,9 @@ class AppointmentRepository
     {
         return Appointment::orderBy('created_at', 'DESC')->first();
     }
+
+    public function all()
+    {
+        return Appointment::all();
+    }
 }
