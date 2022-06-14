@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (){
+    return redirect()->route('appointments.create');
 });
+
+
+
+Route::prefix('appointments')->name('appointments.')->namespace('Appointments')->group(function () {
+    Route::get('/', 'CreateAppointmentController')->name('create');
+    Route::post('/', 'StoreAppointmentController')->name('store');
+});
+
