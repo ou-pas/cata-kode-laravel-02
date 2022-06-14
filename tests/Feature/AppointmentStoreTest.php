@@ -51,6 +51,14 @@ class AppointmentStoreTest extends TestCase
         ]));
     }
 
+    public function testItFlashSuccessMessage()
+    {
+        $attributes = factory(Appointment::class)->make()->toArray();
+        $attributes['schedule_at'] = (new Carbon($attributes['schedule_at']))->format('d/m/Y H:i');
+        $response = $this->post(route('appointments.store'), $attributes);
+        $response->assertSessionHas('success');
+    }
+
     protected function scheduleAtAssertValue($attribute)
     {
         return (Carbon::createFromFormat('d/m/Y H:i', $attribute))->format('Y-m-d H:i:00');

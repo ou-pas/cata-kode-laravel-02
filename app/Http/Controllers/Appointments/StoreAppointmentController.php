@@ -17,16 +17,26 @@ class StoreAppointmentController extends Controller
 
     public function __invoke(StoreAppointmentRequest $request)
     {
-        $this->appointmentRepository->create(
-            $request->only([
-                'name',
-                'phone',
-                'email',
-                'schedule_at',
-                'message'
-            ])
-        );
 
-        return redirect()->route('appointments.store');
+        try {
+            $this->appointmentRepository->create(
+                $request->only([
+                    'name',
+                    'phone',
+                    'email',
+                    'schedule_at',
+                    'message'
+                ])
+            );
+
+        } catch (\Exception $exception){
+            return redirect()
+                ->route('appointments.store')
+                ->with('error', 'appointment.error');
+        }
+
+        return redirect()
+            ->route('appointments.store')
+            ->with('success', 'appointment.saved');
     }
 }

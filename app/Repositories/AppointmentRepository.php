@@ -13,4 +13,9 @@ class AppointmentRepository
 
         return $appointment;
     }
+
+    public function getLast()
+    {
+        return Appointment::orderBy('created_at', 'DESC')->first();
+    }
 }
