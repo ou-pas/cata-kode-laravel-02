@@ -10,7 +10,7 @@ $factory->define(Appointment::class, function (Faker $faker) {
         'name' => $faker->name,
         'phone' => $faker->phoneNumber,
         'email' => $faker->email,
-        'schedule_at' => $faker->dateTime,
+        'schedule_at' => $faker->dateTime->format('d/m/Y H:i'),
         'message' => $faker->text
     ];
 });

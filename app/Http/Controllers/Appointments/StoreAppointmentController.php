@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Appointments;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreAppointmentRequest;
 
 class StoreAppointmentController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(StoreAppointmentRequest $request)
     {
         return redirect()->route('appointments.store');
     }
