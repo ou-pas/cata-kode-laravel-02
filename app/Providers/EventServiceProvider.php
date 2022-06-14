@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use App\Models\Appointment;
 use App\Observers\AppointmentObserver;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use App\Events\AppointmentRegistered;
+use App\Listeners\SendEmailNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
@@ -17,8 +17,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        AppointmentRegistered::class => [
+            SendEmailNotification::class,
         ],
     ];
 
