@@ -29,7 +29,7 @@ class StoreAppointmentRequest extends FormRequest
             'phone' => [
                 new PhoneRule
             ],
-            'email' => 'required',
+            'email' => 'required|email',
             'schedule_at' => 'required|date_format:d/m/Y H:i',
             'message' => 'nullable'
         ];
